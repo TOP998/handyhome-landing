@@ -301,11 +301,10 @@ html:lang(ka) body {
 }
 
 .service-card__text {
-  color: #FFFFFF !important;
+  color: var(--color-muted);
   font-size: 13px;
   line-height: 1.5;
   margin: 0;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
   position: relative;
   z-index: 2;
 }
@@ -359,11 +358,10 @@ html:lang(ka) body {
 }
 
 .step__text {
-  color: #FFFFFF !important;
+  color: var(--color-muted);
   font-size: 13px;
   line-height: 1.5;
   margin: 0;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
   position: relative;
   z-index: 2;
 }
@@ -395,6 +393,77 @@ html:lang(ka) body {
   left: 0;
   color: var(--color-accent);
   font-weight: 700;
+}
+
+/* FAQ — та же "стеклянная" карточка, что и у услуг/шагов, но в виде
+   аккордеона на нативных <details>/<summary> (без доп. JS). */
+
+.faq {
+  width: 100%;
+  padding: 48px 24px;
+}
+
+.faq__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq__item {
+  position: relative;
+  background: linear-gradient(135deg, rgba(214, 175, 106, 0.16), rgba(214, 175, 106, 0.04));
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(214, 175, 106, 0.4);
+  border-radius: var(--radius);
+  padding: 0 22px;
+  box-shadow: 0 8px 22px rgba(28, 28, 28, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.faq__question {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 32px 18px 0;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--color-text);
+  position: relative;
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 16px;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.faq__item[open] .faq__question::after {
+  content: "\2212";
+}
+
+.faq__item[open] .faq__question {
+  border-bottom: 1px solid rgba(214, 175, 106, 0.35);
+}
+
+.faq__answer {
+  margin: 0;
+  padding: 16px 0 18px;
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 /* Финальный CTA — кнопки по центру */
@@ -433,6 +502,15 @@ html:lang(ka) body {
   box-shadow: 0 0 0 1px rgba(28, 28, 28, 0.12);
 }
 
+.footer__phone {
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.footer__phone:hover {
+  color: var(--color-accent-dark);
+}
+
 .footer__link {
   color: var(--color-muted);
   text-decoration: underline;
@@ -442,6 +520,14 @@ html:lang(ka) body {
 
 .footer__link:hover {
   color: var(--color-accent-dark);
+}
+
+.footer__seo {
+  max-width: 640px;
+  margin: 12px auto 0 !important;
+  font-size: 11px;
+  line-height: 1.6;
+  opacity: 0.75;
 }
 
 /* Модальные окна для юридических документов */
@@ -547,8 +633,7 @@ html:lang(ka) body {
 
   .topbar__brand {
     justify-content: center;
-    flex-wrap: nowrap;
-    white-space: nowrap;
+    flex-wrap: wrap;
   }
 
   .lang-switch {
@@ -586,8 +671,7 @@ html:lang(ka) body {
 
   .topbar__brand {
     justify-content: center;
-    flex-wrap: nowrap;
-    white-space: nowrap;
+    flex-wrap: wrap;
   }
 
   .lang-switch {
@@ -669,6 +753,10 @@ html:lang(ka) body {
 
   .section__title {
     font-size: 21px;
+  }
+
+  .faq {
+    padding: 36px 18px;
   }
 
   .modal__dialog {
