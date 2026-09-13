@@ -278,34 +278,13 @@
       <div class="faq__inner">
         <h2 class="section__title" data-i18n="faq_title">Часто задаваемые вопросы</h2>
         <div class="faq__list">
-          <details class="faq__item">
-            <summary class="faq__question" data-i18n="faq1_q">Сколько стоит ремонт квартиры в Тбилиси?</summary>
-            <p class="faq__answer" data-i18n="faq1_a">Мелкий ремонт — от 30 ₾ (замена крана, розетки, устранение засора). Стоимость капитального или косметического ремонта рассчитывается индивидуально после бесплатного выезда на замер. Расчёт стоимости и смета — бесплатно.</p>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__question" data-i18n="faq2_q">Что делать, если течёт кран или труба?</summary>
-            <p class="faq__answer" data-i18n="faq2_a">Напишите в Telegram или WhatsApp, пришлите фото. Мастер-сантехник определит причину протечки и выполнит ремонт либо замену неисправных деталей в тот же день.</p>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__question" data-i18n="faq3_q">Почему выбивает автомат или нет электричества?</summary>
-            <p class="faq__answer" data-i18n="faq3_a">Необходимо проверить электропроводку, розетки, выключатели и электрический щит. Пришлите фото щитка в Telegram — электрик приедет в удобное время.</p>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__question" data-i18n="faq4_q">Можно ли заказать ремонт квартиры под ключ?</summary>
-            <p class="faq__answer" data-i18n="faq4_a">Да, выполняем комплексный ремонт квартиры под ключ: от подготовки и черновых работ до отделки, сантехники, электрики и установки мебели. Сначала бесплатный замер — потом точная смета.</p>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__question" data-i18n="faq5_q">Можно ли вызвать мастера для сборки мебели?</summary>
-            <p class="faq__answer" data-i18n="faq5_a">Да, выполняем сборку шкафов, кухонных гарнитуров, кроватей, столов, тумб, стеллажей и другой мебели на дому. Работаем с IKEA и любыми другими производителями.</p>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__question" data-i18n="faq6_q">Нужна ли предоплата?</summary>
-            <p class="faq__answer" data-i18n="faq6_a">Нет. Вы платите только после того, как работа выполнена и вы её приняли.</p>
-          </details>
-          <details class="faq__item">
-            <summary class="faq__question" data-i18n="faq7_q">По каким районам Тбилиси работаете?</summary>
-            <p class="faq__answer" data-i18n="faq7_a">Работаем по всему Тбилиси: Ваке, Сабуртало, Диди Дигоми, Глдани, Исани, Самгори, Дидубе, Чугурети, Надзаладеви, Крцаниси, Мтацминда, Ортачала и другие районы.</p>
-          </details>
+          <button type="button" class="faq__question" data-modal="faq1" data-i18n="faq1_q">Сколько стоит ремонт квартиры в Тбилиси?</button>
+          <button type="button" class="faq__question" data-modal="faq2" data-i18n="faq2_q">Что делать, если течёт кран или труба?</button>
+          <button type="button" class="faq__question" data-modal="faq3" data-i18n="faq3_q">Почему выбивает автомат или нет электричества?</button>
+          <button type="button" class="faq__question" data-modal="faq4" data-i18n="faq4_q">Можно ли заказать ремонт квартиры под ключ?</button>
+          <button type="button" class="faq__question" data-modal="faq5" data-i18n="faq5_q">Можно ли вызвать мастера для сборки мебели?</button>
+          <button type="button" class="faq__question" data-modal="faq6" data-i18n="faq6_q">Нужна ли предоплата?</button>
+          <button type="button" class="faq__question" data-modal="faq7" data-i18n="faq7_q">По каким районам Тбилиси работаете?</button>
         </div>
       </div>
     </section>
@@ -426,6 +405,83 @@
         <h3>8. Прочие условия</h3>
         <p>Оформление заявки через Сервис означает согласие Заказчика с условиями настоящей оферты и Политикой конфиденциальности.</p>
         <p><em>Документ носит информационный характер. При необходимости рекомендуем уточнить формулировки с юристом под конкретную юрисдикцию.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-faq1" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-faq1-title">
+      <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+      <h2 id="modal-faq1-title" data-i18n="faq1_q">Сколько стоит ремонт квартиры в Тбилиси?</h2>
+      <div class="modal__body">
+        <p data-i18n="faq1_a">Мелкий ремонт — от 30 ₾ (замена крана, розетки, устранение засора). Стоимость капитального или косметического ремонта рассчитывается индивидуально после бесплатного выезда на замер. Расчёт стоимости и смета — бесплатно.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-faq2" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-faq2-title">
+      <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+      <h2 id="modal-faq2-title" data-i18n="faq2_q">Что делать, если течёт кран или труба?</h2>
+      <div class="modal__body">
+        <p data-i18n="faq2_a">Напишите в Telegram или WhatsApp, пришлите фото. Мастер-сантехник определит причину протечки и выполнит ремонт либо замену неисправных деталей в тот же день.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-faq3" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-faq3-title">
+      <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+      <h2 id="modal-faq3-title" data-i18n="faq3_q">Почему выбивает автомат или нет электричества?</h2>
+      <div class="modal__body">
+        <p data-i18n="faq3_a">Необходимо проверить электропроводку, розетки, выключатели и электрический щит. Пришлите фото щитка в Telegram — электрик приедет в удобное время.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-faq4" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-faq4-title">
+      <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+      <h2 id="modal-faq4-title" data-i18n="faq4_q">Можно ли заказать ремонт квартиры под ключ?</h2>
+      <div class="modal__body">
+        <p data-i18n="faq4_a">Да, выполняем комплексный ремонт квартиры под ключ: от подготовки и черновых работ до отделки, сантехники, электрики и установки мебели. Сначала бесплатный замер — потом точная смета.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-faq5" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-faq5-title">
+      <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+      <h2 id="modal-faq5-title" data-i18n="faq5_q">Можно ли вызвать мастера для сборки мебели?</h2>
+      <div class="modal__body">
+        <p data-i18n="faq5_a">Да, выполняем сборку шкафов, кухонных гарнитуров, кроватей, столов, тумб, стеллажей и другой мебели на дому. Работаем с IKEA и любыми другими производителями.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-faq6" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-faq6-title">
+      <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+      <h2 id="modal-faq6-title" data-i18n="faq6_q">Нужна ли предоплата?</h2>
+      <div class="modal__body">
+        <p data-i18n="faq6_a">Нет. Вы платите только после того, как работа выполнена и вы её приняли.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-faq7" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-faq7-title">
+      <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+      <h2 id="modal-faq7-title" data-i18n="faq7_q">По каким районам Тбилиси работаете?</h2>
+      <div class="modal__body">
+        <p data-i18n="faq7_a">Работаем по всему Тбилиси: Ваке, Сабуртало, Диди Дигоми, Глдани, Исани, Самгори, Дидубе, Чугурети, Надзаладеви, Крцаниси, Мтацминда, Ортачала и другие районы.</p>
       </div>
     </div>
   </div>
@@ -609,6 +665,9 @@
         m.classList.remove('is-open');
         m.setAttribute('aria-hidden', 'true');
       });
+      document.querySelectorAll('[data-modal].is-active').forEach(function (btn) {
+        btn.classList.remove('is-active');
+      });
       document.body.style.overflow = '';
     }
 
@@ -616,10 +675,14 @@
       link.addEventListener('click', function (e) {
         e.preventDefault();
         var modal = document.getElementById('modal-' + link.dataset.modal);
-        if (modal) {
+        if (!modal) return;
+        var alreadyOpen = modal.classList.contains('is-open');
+        closeModals();
+        if (!alreadyOpen) {
           modal.classList.add('is-open');
           modal.setAttribute('aria-hidden', 'false');
           document.body.style.overflow = 'hidden';
+          link.classList.add('is-active');
         }
       });
     });
