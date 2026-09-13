@@ -1,0 +1,662 @@
+:root {
+  --color-bg: #F4EFE6;
+  --color-surface: #FFFFFF;
+  --color-text: #1C1C1C;
+  --color-muted: #6B675F;
+  --color-accent: #B8893D;
+  --color-accent-dark: #96702F;
+  --color-whatsapp: #25D366;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Golos Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Грузинские буквы Golos Text не поддерживает — при переключении на GE
+   (html lang="ka", см. applyLang в index.html) используем Noto Sans Georgian. */
+html:lang(ka) body {
+  font-family: "Noto Sans Georgian", "Golos Text", sans-serif;
+}
+
+/* Верхняя плашка — матовое стекло поверх фона страницы */
+
+.topbar {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topbar__brand {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.topbar__logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.topbar__name {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1;
+}
+
+.topbar__name--handy {
+  color: var(--color-text);
+}
+
+.topbar__name--home {
+  color: var(--color-accent);
+}
+
+.topbar__flag {
+  width: 46px;
+  height: 30px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(28, 28, 28, 0.12);
+  flex-shrink: 0;
+  margin-bottom: 5px;
+}
+
+/* Переключатель языков */
+
+.lang-switch {
+  display: flex;
+  gap: 4px;
+}
+
+.lang-switch__btn {
+  border: none;
+  background: transparent;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-switch__btn:hover {
+  background: rgba(184, 137, 61, 0.14);
+}
+
+.lang-switch__btn.is-active {
+  background: var(--color-accent);
+  color: #FFFFFF;
+}
+
+/* Hero — текст слева, фото справа компактной карточкой */
+
+.hero {
+  width: 100%;
+  padding: 56px 24px;
+}
+
+.hero__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero__eyebrow {
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 12px;
+}
+
+.hero__title {
+  font-size: 32px;
+  line-height: 1.25;
+  margin: 0 0 16px;
+}
+
+.hero__description {
+  color: var(--color-muted);
+  line-height: 1.6;
+  font-size: 16px;
+  margin: 0 0 28px;
+}
+
+.hero__photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(28, 28, 28, 0.15);
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Кнопки без заливки — просто иконка мессенджера (у неё уже свой фирменный
+   цвет внутри SVG) и текст. При наведении/нажатии текст с иконкой увеличиваются. */
+
+.cta__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 2px;
+  background: transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-text);
+  transition: transform 0.2s ease;
+  transform-origin: left center;
+}
+
+.cta__button:hover,
+.cta__button:focus-visible {
+  transform: scale(1.07);
+}
+
+.cta__button:active {
+  transform: scale(0.96);
+}
+
+.cta__icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+/* Общие "фото-блоки" — компактная карточка с фото сверху, чтобы снимок был
+   виден целиком, а не обрезан на весь экран, плюс заголовок и контент снизу
+   на обычном фоне страницы. */
+
+.section__title {
+  text-align: center;
+  font-size: 24px;
+  margin: 0 0 32px;
+}
+
+.photo-block {
+  width: 100%;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.photo-block__frame {
+  display: block;
+  width: min(92%, 420px);
+  aspect-ratio: 4 / 5;
+  margin: 0 auto 28px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: 0 10px 26px rgba(28, 28, 28, 0.14);
+}
+
+.photo-block__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Услуги и шаги — карточки тонированы бронзой, чтобы стекло было заметно
+   отличимо от кремового фона страницы, а не сливалось в почти белое пятно. */
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(214, 175, 106, 0.16), rgba(214, 175, 106, 0.04));
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(214, 175, 106, 0.4);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(28, 28, 28, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card::before,
+.step::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -30%;
+  width: 65%;
+  height: 220%;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  transform: rotate(18deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(28, 28, 28, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.service-card__icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.service-card__title {
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: var(--color-text);
+}
+
+.service-card__text {
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.steps__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.step {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(214, 175, 106, 0.16), rgba(214, 175, 106, 0.04));
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(214, 175, 106, 0.4);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(28, 28, 28, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(28, 28, 28, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.step__number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #FFFFFF;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.step__title {
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: var(--color-text);
+}
+
+.step__text {
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Преимущества */
+
+.perks__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.perks__item {
+  font-size: 15px;
+  line-height: 1.4;
+  padding-left: 28px;
+  position: relative;
+  color: var(--color-text);
+}
+
+.perks__item::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* Финальный CTA — кнопки по центру */
+
+.photo-block--final .cta {
+  align-items: center;
+}
+
+/* Футер — тоже матовое стекло */
+
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--color-muted);
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.footer p {
+  margin: 0 0 8px;
+}
+
+.footer p:last-child {
+  margin-bottom: 0;
+}
+
+.footer__flag {
+  width: 26px;
+  height: 17px;
+  vertical-align: -3px;
+  margin-right: 8px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(28, 28, 28, 0.12);
+}
+
+.footer__link {
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.footer__link:hover {
+  color: var(--color-accent-dark);
+}
+
+/* Модальные окна для юридических документов */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal.is-open {
+  display: flex;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 18, 14, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.modal__dialog {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: var(--radius);
+  max-width: 640px;
+  width: 100%;
+  max-height: 82vh;
+  overflow-y: auto;
+  padding: 32px 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal__dialog h2 {
+  margin: 0 0 18px;
+  font-size: 22px;
+  padding-right: 32px;
+}
+
+.modal__body h3 {
+  margin: 20px 0 8px;
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.modal__body p {
+  margin: 0 0 14px;
+  line-height: 1.6;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.modal__body a {
+  color: var(--color-accent-dark);
+}
+
+.modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(28, 28, 28, 0.08);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.modal__close:hover {
+  background: rgba(28, 28, 28, 0.16);
+}
+
+/* Адаптация: планшет */
+
+@media (max-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1fr 0.8fr;
+    gap: 28px;
+  }
+
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero__title {
+    font-size: 28px;
+  }
+
+  .topbar__inner {
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 8px;
+  }
+
+  .topbar__brand {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .lang-switch {
+    justify-content: center;
+    flex: 1 0 100%;
+    order: 3;
+  }
+
+  .topbar__logo {
+    width: 84px;
+    height: 84px;
+  }
+
+  .topbar__name {
+    font-size: 38px;
+  }
+
+  .topbar__flag {
+    width: 38px;
+    height: 25px;
+    margin-bottom: 4px;
+  }
+}
+
+/* Адаптация: телефон */
+
+@media (max-width: 640px) {
+  .topbar__inner {
+    padding: 8px 16px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 8px;
+  }
+
+  .topbar__brand {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .lang-switch {
+    justify-content: center;
+    flex: 1 0 100%;
+    width: 100%;
+    order: 3;
+  }
+
+  .topbar__logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+  }
+
+  .topbar__name {
+    font-size: 26px;
+  }
+
+  .topbar__flag {
+    width: 32px;
+    height: 21px;
+    margin-bottom: 3px;
+  }
+
+  .lang-switch__btn {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero {
+    padding: 32px 18px;
+  }
+
+  .hero__title {
+    font-size: 24px;
+  }
+
+  .hero__description {
+    font-size: 15px;
+  }
+
+  .hero__photo {
+    order: -1;
+    aspect-ratio: 16 / 10;
+  }
+
+  .cta {
+    align-items: stretch;
+  }
+
+  .cta__button {
+    justify-content: center;
+    transform-origin: center;
+  }
+
+  .photo-block--final .cta {
+    align-items: stretch;
+  }
+
+  .photo-block {
+    padding: 36px 18px;
+  }
+
+  .photo-block__frame {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .services__grid,
+  .steps__list {
+    grid-template-columns: 1fr;
+  }
+
+  .section__title {
+    font-size: 21px;
+  }
+
+  .modal__dialog {
+    padding: 24px 18px;
+    max-height: 88vh;
+  }
+}
