@@ -525,15 +525,14 @@ html:lang(ka) body {
   }
 
   .topbar__inner {
-    padding: 10px 20px;
-    flex-wrap: wrap;
+    padding: 8px 20px;
     justify-content: center;
-    row-gap: 8px;
   }
 
   .topbar__brand {
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    gap: 10px;
   }
 
   .lang-switch {
@@ -543,18 +542,17 @@ html:lang(ka) body {
   }
 
   .topbar__logo {
-    width: 84px;
-    height: 84px;
+    width: 60px;
+    height: 60px;
   }
 
   .topbar__name {
-    font-size: 38px;
+    font-size: 32px;
   }
 
   .topbar__flag {
-    width: 38px;
-    height: 25px;
-    margin-bottom: 4px;
+    width: 36px;
+    height: 24px;
   }
 }
 
@@ -562,16 +560,15 @@ html:lang(ka) body {
 
 @media (max-width: 640px) {
   .topbar__inner {
-    padding: 8px 16px;
-    gap: 10px;
-    flex-wrap: wrap;
+    padding: 7px 12px;
+    gap: 8px;
     justify-content: center;
-    row-gap: 8px;
   }
 
   .topbar__brand {
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    gap: 10px;
   }
 
   .lang-switch {
@@ -582,19 +579,18 @@ html:lang(ka) body {
   }
 
   .topbar__logo {
-    width: 72px;
-    height: 72px;
-    border-radius: 12px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
   }
 
   .topbar__name {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .topbar__flag {
-    width: 32px;
-    height: 21px;
-    margin-bottom: 3px;
+    width: 30px;
+    height: 20px;
   }
 
   .lang-switch__btn {
