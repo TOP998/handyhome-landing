@@ -395,8 +395,10 @@ html:lang(ka) body {
   font-weight: 700;
 }
 
-/* FAQ — та же "стеклянная" карточка, что и у услуг/шагов, но в виде
-   аккордеона на нативных <details>/<summary> (без доп. JS). */
+/* FAQ — вопросы оформлены как кнопки (стеклянная карточка, как у услуг/шагов).
+   Клик открывает модальное окно с ответом (см. .modal ниже и JS в index.html),
+   повторный клик по той же кнопке — закрывает его. Список центрирован
+   и на десктопе, и на мобильном. */
 
 .faq {
   width: 100%;
@@ -406,70 +408,56 @@ html:lang(ka) body {
 .faq__inner {
   max-width: 720px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .faq__list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 12px;
 }
 
-.faq__item {
-  position: relative;
+.faq__question {
+  display: block;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  cursor: pointer;
+  text-align: center;
   background: linear-gradient(135deg, rgba(214, 175, 106, 0.16), rgba(214, 175, 106, 0.04));
   backdrop-filter: blur(18px) saturate(150%);
   -webkit-backdrop-filter: blur(18px) saturate(150%);
   border: 1px solid rgba(214, 175, 106, 0.4);
   border-radius: var(--radius);
-  padding: 0 22px;
-  box-shadow: 0 8px 22px rgba(28, 28, 28, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-
-.faq__question {
-  cursor: pointer;
-  list-style: none;
-  padding: 18px 32px 18px 0;
+  padding: 16px 22px;
   font-weight: 700;
   font-size: 15px;
   line-height: 1.4;
   color: var(--color-text);
-  position: relative;
+  box-shadow: 0 8px 22px rgba(28, 28, 28, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.faq__question::-webkit-details-marker {
-  display: none;
+.faq__question:hover,
+.faq__question:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(28, 28, 28, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-.faq__question::after {
-  content: "+";
-  position: absolute;
-  right: 0;
-  top: 16px;
-  font-size: 20px;
-  line-height: 1;
-  color: var(--color-accent);
+.faq__question.is-active {
+  border-color: var(--color-accent);
 }
 
-.faq__item[open] .faq__question::after {
-  content: "\2212";
-}
-
-.faq__item[open] .faq__question {
-  border-bottom: 1px solid rgba(214, 175, 106, 0.35);
-}
-
-.faq__answer {
-  margin: 0;
-  padding: 16px 0 18px;
-  color: var(--color-muted);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* Финальный CTA — кнопки по центру */
+/* Финальный CTA — блок кнопок центрирован как единое целое, при этом
+   иконки внутри всех кнопок остаются на одной вертикальной линии
+   (align-items: flex-start внутри группы, а не center на каждой кнопке). */
 
 .photo-block--final .cta {
-  align-items: center;
+  align-items: flex-start;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 /* Футер — тоже матовое стекло */
