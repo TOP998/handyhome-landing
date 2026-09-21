@@ -132,6 +132,19 @@
 
 <link rel="stylesheet" href="style.css?v=3" />
 
+<style>
+  .hh-prices { padding: 64px 20px; background: #faf9f7; }
+  .hh-prices__inner { max-width: 920px; margin: 0 auto; }
+  .hh-prices__note { text-align: center; color: #6b6b6b; margin: 8px 0 32px; font-size: 15px; }
+  .hh-prices__table-wrap { overflow-x: auto; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .hh-prices__table { width: 100%; border-collapse: collapse; background: #fff; font-size: 15px; min-width: 520px; }
+  .hh-prices__table th, .hh-prices__table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #eee; }
+  .hh-prices__table th { background: #f1efe9; font-weight: 600; }
+  .hh-prices__table tr:last-child td { border-bottom: none; }
+  .hh-prices__table td:nth-child(2) { white-space: nowrap; font-weight: 600; color: #1f5f4f; }
+  .hh-prices__cta-text { text-align: center; margin: 32px 0 16px; font-weight: 500; }
+</style>
+
 <!-- Google Analytics (GA4). Замени G-DZVSDEWR13 на свой Measurement ID, когда создашь свойство. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DZVSDEWR13"></script>
 <script>
@@ -283,6 +296,61 @@
           <li class="perks__item" data-i18n="perks_3">Для капитального ремонта — сначала бесплатный замер</li>
           <li class="perks__item" data-i18n="perks_4">Работаем по всему Тбилиси</li>
         </ul>
+      </div>
+    </section>
+
+    <section class="hh-prices" id="prices">
+      <div class="hh-prices__inner">
+        <h2 class="section__title" data-i18n="prices_title">Цены на ремонт квартир в Тбилиси</h2>
+        <p class="hh-prices__note" data-i18n="prices_note">Ориентир за м². Точная стоимость — после бесплатного замера.</p>
+        <div class="hh-prices__table-wrap">
+          <table class="hh-prices__table">
+            <thead>
+              <tr>
+                <th data-i18n="prices_col_type">Тип ремонта</th>
+                <th data-i18n="prices_col_range">Цена за м²</th>
+                <th data-i18n="prices_col_includes">Что входит</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="price_row1_type">Косметический</td>
+                <td>250–350 ₾</td>
+                <td data-i18n="price_row1_desc">Покраска, шпаклёвка, ламинат, плинтусы</td>
+              </tr>
+              <tr>
+                <td data-i18n="price_row2_type">Чистовая отделка</td>
+                <td>400–700 ₾</td>
+                <td data-i18n="price_row2_desc">Полы, стены, потолки, двери, плитка, сантехника</td>
+              </tr>
+              <tr>
+                <td data-i18n="price_row3_type">Капитальный стандарт</td>
+                <td>600–900 ₾</td>
+                <td data-i18n="price_row3_desc">Электрика, сантехника, стяжка, штукатурка, плитка</td>
+              </tr>
+              <tr>
+                <td data-i18n="price_row4_type">Black frame</td>
+                <td>500–900 ₾</td>
+                <td data-i18n="price_row4_desc">Полный цикл инженерных и отделочных работ</td>
+              </tr>
+              <tr>
+                <td data-i18n="price_row5_type">Премиальный / дизайнерский</td>
+                <td>1000–1 500+ ₾</td>
+                <td data-i18n="price_row5_desc">Дизайн-проект, встроенная мебель, smart home</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="hh-prices__cta-text" data-i18n="prices_cta_text">Хотите точный расчёт под вашу квартиру?</p>
+        <div class="cta">
+          <a class="cta__button cta__button--telegram" href="https://t.me/handy_home_bot">
+            <svg class="cta__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="12" fill="#29A9EA"/>
+              <path fill="#FFFFFF" d="M18.384 8.859 6.977 12.831c-.786.276-.775.679-.141.863l3.194.966.912 2.898c.145.462.29.71.57.71.267 0 .384-.127.529-.279l1.373-1.317 2.938 2.171c.541.323.93.157 1.067-.502l1.933-9.11c.202-.865-.312-1.243-.968-.995z"/>
+            </svg>
+            <span data-i18n="cta_telegram">Оставить заявку в Telegram</span>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -528,6 +596,22 @@
         perks_2: "Называем цену до начала работы, без сюрпризов",
         perks_3: "Для капитального ремонта — сначала бесплатный замер",
         perks_4: "Работаем по всему Тбилиси",
+        prices_title: "Цены на ремонт квартир в Тбилиси",
+        prices_note: "Ориентир за м². Точная стоимость — после бесплатного замера.",
+        prices_col_type: "Тип ремонта",
+        prices_col_range: "Цена за м²",
+        prices_col_includes: "Что входит",
+        price_row1_type: "Косметический",
+        price_row1_desc: "Покраска, шпаклёвка, ламинат, плинтусы",
+        price_row2_type: "Чистовая отделка",
+        price_row2_desc: "Полы, стены, потолки, двери, плитка, сантехника",
+        price_row3_type: "Капитальный стандарт",
+        price_row3_desc: "Электрика, сантехника, стяжка, штукатурка, плитка",
+        price_row4_type: "Black frame",
+        price_row4_desc: "Полный цикл инженерных и отделочных работ",
+        price_row5_type: "Премиальный / дизайнерский",
+        price_row5_desc: "Дизайн-проект, встроенная мебель, smart home",
+        prices_cta_text: "Хотите точный расчёт под вашу квартиру?",
         faq_title: "Часто задаваемые вопросы",
         faq1_q: "Сколько стоит ремонт квартиры в Тбилиси?",
         faq1_a: "Мелкий ремонт — от 30 ₾ (замена крана, розетки, устранение засора). Стоимость капитального или косметического ремонта рассчитывается индивидуально после бесплатного выезда на замер. Расчёт стоимости и смета — бесплатно.",
@@ -577,6 +661,22 @@
         perks_2: "We quote the price before starting — no surprises",
         perks_3: "Free measurement for full renovations",
         perks_4: "We work across all of Tbilisi",
+        prices_title: "Renovation prices in Tbilisi",
+        prices_note: "Approximate price per m². Exact cost after a free measurement.",
+        prices_col_type: "Renovation type",
+        prices_col_range: "Price per m²",
+        prices_col_includes: "What's included",
+        price_row1_type: "Cosmetic",
+        price_row1_desc: "Painting, filling, laminate, skirting boards",
+        price_row2_type: "Finishing",
+        price_row2_desc: "Floors, walls, ceilings, doors, tiling, plumbing",
+        price_row3_type: "Standard full renovation",
+        price_row3_desc: "Electrical, plumbing, screed, plastering, tiling",
+        price_row4_type: "Black frame",
+        price_row4_desc: "Full cycle of utilities and finishing work",
+        price_row5_type: "Premium / designer",
+        price_row5_desc: "Design project, built-in furniture, smart home",
+        prices_cta_text: "Want an exact quote for your apartment?",
         faq_title: "Frequently asked questions",
         faq1_q: "How much does an apartment renovation cost in Tbilisi?",
         faq1_a: "Minor repairs start from 30 ₾ (replacing a tap, an outlet, clearing a blockage). Full or cosmetic renovation is priced individually after a free on-site measurement. The quote itself is free.",
@@ -626,6 +726,22 @@
         perks_2: "ფასს ვასახელებთ სამუშაოს დაწყებამდე, გაურკვევლობის გარეშე",
         perks_3: "კაპიტალური რემონტისთვის — უფასო გაზომვა",
         perks_4: "ვმუშაობთ მთელ თბილისში",
+        prices_title: "ბინის რემონტის ფასები თბილისში",
+        prices_note: "ორიენტირი 1 მ²-ზე. ზუსტი ღირებულება — უფასო გაზომვის შემდეგ.",
+        prices_col_type: "რემონტის ტიპი",
+        prices_col_range: "ფასი მ²-ზე",
+        prices_col_includes: "რა შედის",
+        price_row1_type: "კოსმეტიკური",
+        price_row1_desc: "შეღებვა, შპატლევკა, ლამინატი, პლინტუსები",
+        price_row2_type: "მოსაპირკეთებელი სამუშაოები",
+        price_row2_desc: "იატაკები, კედლები, ჭერი, კარები, ფილა, სანტექნიკა",
+        price_row3_type: "კაპიტალური, სტანდარტული",
+        price_row3_desc: "ელექტრობა, სანტექნიკა, ჩამოსხმა, ბათქაში, ფილა",
+        price_row4_type: "Black frame",
+        price_row4_desc: "საინჟინრო და მოსაპირკეთებელი სამუშაოების სრული ციკლი",
+        price_row5_type: "პრემიუმი / დიზაინერული",
+        price_row5_desc: "დიზაინ-პროექტი, ჩაშენებული ავეჯი, smart home",
+        prices_cta_text: "გსურთ ზუსტი ხარჯთაღრიცხვა თქვენი ბინისთვის?",
         faq_title: "ხშირად დასმული კითხვები",
         faq1_q: "რა ღირს ბინის რემონტი თბილისში?",
         faq1_a: "წვრილმანი სამუშაო — 30 ₾-დან (ონკანის, როზეტის შეცვლა, გაჭედვის აღმოფხვრა). კაპიტალური ან კოსმეტიკური რემონტის ღირებულება განისაზღვრება ინდივიდუალურად, უფასო გაზომვის შემდეგ. თავად ხარჯთაღრიცხვა უფასოა.",
