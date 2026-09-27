@@ -76,26 +76,30 @@
 <style>
 /* ── КНОПКА ПОСМОТРЕТЬ ЦЕНЫ ── */
 .prices-btn-wrap {
-  padding: 28px 24px 0;
-  display: flex;
-  justify-content: center;
+  padding: 28px 0 0;
 }
 .prices-btn {
   display: block;
   width: 100%;
   padding: 18px 32px;
-  background: #EDE8DC;
+  background: linear-gradient(135deg, rgba(214, 175, 106, 0.16), rgba(214, 175, 106, 0.04));
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(214, 175, 106, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(28, 28, 28, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
   color: #1C1C1C;
   font-family: 'Golos Text', sans-serif;
   font-size: 16px;
   font-weight: 600;
-  border: none;
-  border-radius: 16px;
   cursor: pointer;
-  transition: background 0.18s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   letter-spacing: 0.01em;
 }
-.prices-btn:hover { background: #E2DCCE; }
+.prices-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(28, 28, 28, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
 
 /* ── МОДАЛКА ЦЕН ── */
 #modal-prices .modal__dialog {
@@ -170,15 +174,14 @@
   border-radius: 12px;
   font-family: 'Golos Text', sans-serif;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   text-align: center;
-  transition: background 0.15s;
+  transition: opacity 0.15s, transform 0.15s;
 }
-.prices-cta__tg  { background: #2C2C2C; color: #F5F0E8; }
-.prices-cta__tg:hover  { background: #1a1a1a; }
-.prices-cta__wa  { background: #EDE8DC; color: #2C2C2C; }
-.prices-cta__wa:hover  { background: #E2DCCE; }
+.prices-cta a:hover { opacity: 0.88; transform: scale(1.02); }
+.prices-cta__tg { background: #29A9EA; color: #fff; }
+.prices-cta__wa { background: #25D366; color: #fff; }
 .prices-note {
   margin-top: 12px;
   font-size: 12px;
