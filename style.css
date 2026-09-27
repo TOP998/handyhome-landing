@@ -625,6 +625,18 @@ html:lang(ka) body {
 
 .modal__close:hover { background: rgba(28, 28, 28, 0.16); }
 
+/* ===================== КНОПКИ ЦЕН В МОДАЛКЕ ===================== */
+
+.prices-cta__tg,
+.prices-cta__wa {
+  color: var(--color-text);
+}
+
+.prices-cta__tg:hover,
+.prices-cta__wa:hover {
+  color: var(--color-text);
+}
+
 /* ===================== АДАПТАЦИЯ ===================== */
 
 @media (max-width: 900px) {
