@@ -300,7 +300,7 @@
             ремонта сначала бесплатно приезжаем на замер.
           </p>
           <div class="cta">
-            <a class="cta__button cta__button--telegram" href="tg://resolve?domain=handy_home_bot">
+            <a class="cta__button cta__button--telegram" href="https://t.me/handy_home_bot">
               <svg class="cta__icon" viewBox="0 0 24 24" aria-hidden="true">
                 <circle cx="12" cy="12" r="12" fill="#29A9EA"/>
                 <path fill="#FFFFFF" d="M18.384 8.859 6.977 12.831c-.786.276-.775.679-.141.863l3.194.966.912 2.898c.145.462.29.71.57.71.267 0 .384-.127.529-.279l1.373-1.317 2.938 2.171c.541.323.93.157 1.067-.502l1.933-9.11c.202-.865-.312-1.243-.968-.995z"/>
@@ -430,7 +430,7 @@
       <div class="photo-block__inner">
         <h2 class="section__title" data-i18n="cta_final_title">Готовы начать?</h2>
         <div class="cta">
-          <a class="cta__button cta__button--telegram" href="tg://resolve?domain=handy_home_bot">
+          <a class="cta__button cta__button--telegram" href="https://t.me/handy_home_bot">
             <svg class="cta__icon" viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="12" fill="#29A9EA"/>
               <path fill="#FFFFFF" d="M18.384 8.859 6.977 12.831c-.786.276-.775.679-.141.863l3.194.966.912 2.898c.145.462.29.71.57.71.267 0 .384-.127.529-.279l1.373-1.317 2.938 2.171c.541.323.93.157 1.067-.502l1.933-9.11c.202-.865-.312-1.243-.968-.995z"/>
@@ -584,7 +584,7 @@
       <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
       <h2 id="modal-faq4-title" data-i18n="faq4_q">Можно ли заказать ремонт квартиры под ключ?</h2>
       <div class="modal__body">
-        <p data-i18n="faq4_a">Да, выполняем комплексный ремонт квартиры под ключ: от подготовки и черновых работ до отделки, сантехники, электрики и установки мебели. Сначала замер - потом точная смета.</p>
+        <p data-i18n="faq4_a">Да, выполняем комплексный ремонт квартиры под ключ: от подготовки и черновых работ до отделки, сантехники, электрики и установки мебели. Сначала бесплатный замер — потом точная смета.</p>
       </div>
     </div>
   </div>
@@ -656,12 +656,12 @@
 
         <div class="prices-group">
           <div class="prices-group__title">Полы, потолки, перегородки</div>
-          <div class="prices-row"><span class="work">Укладка ламината, кварцвинила</span><span class="cost">от 30 ₾/м²</span></div>
+          <div class="prices-row"><span class="work">Укладка ламината, кварцвинила</span><span class="cost">30 ₾/м²</span></div>
           <div class="prices-row"><span class="work">Укладка плитки / керамогранита (до 60×60)</span><span class="cost">от 70 ₾/м²</span></div>
           <div class="prices-row"><span class="work">Затирка плиточных швов</span><span class="cost">15 ₾/м²</span></div>
           <div class="prices-row"><span class="work">Монтаж гипсокартона на стены (1 слой)</span><span class="cost">30 ₾/м²</span></div>
           <div class="prices-row"><span class="work">Монтаж гипсокартонного потолка (1 уровень)</span><span class="cost">50 ₾/м²</span></div>
-          <div class="prices-row"><span class="work">Плинтус напольный пластиковый</span><span class="cost">10 ₾/пог.м</span></div>
+          <div class="prices-row"><span class="work">Плинтус напольный пластиковый</span><span class="cost">10 ₾/пог. м</span></div>
         </div>
 
         <div class="prices-group">
@@ -695,7 +695,7 @@
         </div>
 
         <div class="prices-cta">
-          <a href="tg://resolve?domain=handy_home_bot" class="prices-cta__tg">Оставить заявку в Telegram</a>
+          <a href="https://t.me/handy_home_bot" class="prices-cta__tg">Оставить заявку в Telegram</a>
           <a href="https://wa.me/995568673272" class="prices-cta__wa" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
         </div>
         <p class="prices-note">Качество, на которое можно рассчитывать</p>
@@ -955,6 +955,20 @@
         heroPhoto.style.transform = 'translateY(' + (window.scrollY * 0.12) + 'px)';
       }, { passive: true });
     }
+  </script>
+  <script>
+    // Android + встроенный браузер Facebook/Instagram: открываем сайт в Chrome
+    (function () {
+      var ua = navigator.userAgent || '';
+      if (!/Android/i.test(ua) || !/FBAN|FBAV|FB_IAB|Instagram/i.test(ua)) return;
+      try {
+        if (sessionStorage.getItem('hh_ext_try')) return;
+        sessionStorage.setItem('hh_ext_try', '1');
+      } catch (e) {}
+      var path = location.pathname + location.search + location.hash;
+      location.href = 'intent://www.handyhome.cc' + path +
+        '#Intent;scheme=https;package=com.android.chrome;end';
+    })();
   </script>
 </body>
 </html>
