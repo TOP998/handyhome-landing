@@ -259,6 +259,15 @@
   line-height: 1.5;
 }
 </style>
+<style>
+.ios-modal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.55)}
+.ios-modal.is-open{display:flex}
+.ios-modal__box{position:relative;width:100%;max-width:340px;background:#fff;color:#1C1C1C;border-radius:18px;padding:26px 20px 20px;box-shadow:0 20px 50px rgba(0,0,0,.35);text-align:center;font-family:'Golos Text',sans-serif}
+.ios-modal__close{position:absolute;top:8px;right:12px;background:none;border:0;font-size:26px;line-height:1;color:#777;cursor:pointer}
+.ios-modal__title{margin:0 0 14px;font-size:17px;line-height:1.35}
+.ios-modal__btn{display:block;width:100%;box-sizing:border-box;padding:14px;border:0;border-radius:12px;background:#29A9EA;color:#000;font:700 15px 'Golos Text',sans-serif;cursor:pointer}
+.ios-modal__hint{margin:12px 0 0;font-size:12px;line-height:1.5;color:#666}
+</style>
 </head>
 <body>
 
@@ -307,7 +316,7 @@
               </svg>
               <span data-i18n="cta_telegram">Оставить заявку в Telegram</span>
             </a>
-            <a class="cta__button cta__button--whatsapp" href="https://wa.me/995568673272" target="_blank" rel="noopener noreferrer">
+            <a class="cta__button cta__button--whatsapp" href="https://wa.me/995568673272">
               <svg class="cta__icon" viewBox="0 0 24 24" aria-hidden="true">
                 <circle cx="12" cy="12" r="12" fill="#25D366"/>
                 <path fill="#FFFFFF" d="M12 4.5A7.46 7.46 0 0 0 5.11 15.6L4 19.5l4.02-1.06A7.46 7.46 0 1 0 12 4.5zm4.28 10.63c-.18.5-1.03.95-1.42.99-.37.04-.75.2-2.5-.53-2.11-.88-3.47-2.99-3.58-3.13-.1-.14-.86-1.14-.86-2.18 0-1.04.55-1.55.74-1.76.2-.21.42-.26.56-.26.14 0 .28 0 .4.01.13.01.31-.05.48.37.18.42.6 1.46.65 1.57.05.11.09.23.02.37-.07.14-.11.23-.21.35-.11.13-.22.28-.32.38-.11.1-.22.22-.09.43.12.21.55.9 1.17 1.45.8.71 1.48.93 1.69 1.04.21.11.33.09.46-.05.13-.14.53-.62.67-.83.14-.21.28-.18.47-.11.19.07 1.23.58 1.44.69.21.11.35.16.4.25.06.09.06.51-.12 1.01z"/>
@@ -437,7 +446,7 @@
             </svg>
             <span data-i18n="cta_telegram">Оставить заявку в Telegram</span>
           </a>
-          <a class="cta__button cta__button--whatsapp" href="https://wa.me/995568673272" target="_blank" rel="noopener noreferrer">
+          <a class="cta__button cta__button--whatsapp" href="https://wa.me/995568673272">
             <svg class="cta__icon" viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="12" fill="#25D366"/>
               <path fill="#FFFFFF" d="M12 4.5A7.46 7.46 0 0 0 5.11 15.6L4 19.5l4.02-1.06A7.46 7.46 0 1 0 12 4.5zm4.28 10.63c-.18.5-1.03.95-1.42.99-.37.04-.75.2-2.5-.53-2.11-.88-3.47-2.99-3.58-3.13-.1-.14-.86-1.14-.86-2.18 0-1.04.55-1.55.74-1.76.2-.21.42-.26.56-.26.14 0 .28 0 .4.01.13.01.31-.05.48.37.18.42.6 1.46.65 1.57.05.11.09.23.02.37-.07.14-.11.23-.21.35-.11.13-.22.28-.32.38-.11.1-.22.22-.09.43.12.21.55.9 1.17 1.45.8.71 1.48.93 1.69 1.04.21.11.33.09.46-.05.13-.14.53-.62.67-.83.14-.21.28-.18.47-.11.19.07 1.23.58 1.44.69.21.11.35.16.4.25.06.09.06.51-.12 1.01z"/>
@@ -696,11 +705,20 @@
 
         <div class="prices-cta">
           <a href="https://t.me/handy_home_bot" class="prices-cta__tg">Оставить заявку в Telegram</a>
-          <a href="https://wa.me/995568673272" class="prices-cta__wa" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+          <a href="https://wa.me/995568673272" class="prices-cta__wa">Написать в WhatsApp</a>
         </div>
         <p class="prices-note">Качество, на которое можно рассчитывать</p>
 
       </div>
+    </div>
+  </div>
+
+  <div class="ios-modal" id="ios-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="ios-modal__box">
+      <button class="ios-modal__close" type="button" id="ios-close" aria-label="Close">×</button>
+      <h2 class="ios-modal__title" id="ios-title"></h2>
+      <button class="ios-modal__btn" type="button" id="ios-safari"></button>
+      <p class="ios-modal__hint" id="ios-hint"></p>
     </div>
   </div>
 
@@ -957,17 +975,48 @@
     }
   </script>
   <script>
-    // Android + встроенный браузер Facebook/Instagram: открываем сайт в Chrome
+    // Android внутри Facebook/Instagram: кнопка Telegram открывает Chrome, а он запускает Telegram
     (function () {
       var ua = navigator.userAgent || '';
       if (!/Android/i.test(ua) || !/FBAN|FBAV|FB_IAB|Instagram/i.test(ua)) return;
-      try {
-        if (sessionStorage.getItem('hh_ext_try')) return;
-        sessionStorage.setItem('hh_ext_try', '1');
-      } catch (e) {}
-      var path = location.pathname + location.search + location.hash;
-      location.href = 'intent://www.handyhome.cc' + path +
-        '#Intent;scheme=https;package=com.android.chrome;end';
+      document.querySelectorAll('a[href="https://t.me/handy_home_bot"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          location.href = 'intent://t.me/handy_home_bot#Intent;scheme=https;package=com.android.chrome;end';
+        });
+      });
+    })();
+  </script>
+  <script>
+    // iPhone внутри Facebook/Instagram: окно «Открыть в Safari» вместо нерабочей кнопки Telegram
+    (function () {
+      var ua = navigator.userAgent || '';
+      if (!/iPhone|iPad|iPod/i.test(ua) || !/FBAN|FBAV|FB_IAB|FBIOS|Instagram/i.test(ua)) return;
+      var modal = document.getElementById('ios-modal');
+      if (!modal) return;
+      var T = {
+        ru: { t: 'Чтобы открыть Telegram, откройте страницу в Safari', b: 'Открыть в Safari', h: 'Если не открылось: нажмите ⋯ в углу экрана и выберите «Открыть в Safari»' },
+        en: { t: 'To open Telegram, open this page in Safari', b: 'Open in Safari', h: 'If it did not open: tap ⋯ in the corner and choose “Open in Safari”' },
+        ka: { t: 'Telegram-ის გასახსნელად გახსენით გვერდი Safari-ში', b: 'Safari-ში გახსნა', h: 'თუ არ გაიხსნა: დააჭირეთ ⋯ ეკრანის კუთხეში და აირჩიეთ „Safari-ში გახსნა“' }
+      };
+      function L() { return T[document.documentElement.lang] || T.ru; }
+      function open() {
+        var l = L();
+        document.getElementById('ios-title').textContent = l.t;
+        document.getElementById('ios-safari').textContent = l.b;
+        document.getElementById('ios-hint').textContent = l.h;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+      function close() { modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); }
+      document.getElementById('ios-close').addEventListener('click', close);
+      modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+      document.getElementById('ios-safari').addEventListener('click', function () {
+        window.location.href = 'x-safari-https://t.me/handy_home_bot';
+      });
+      document.querySelectorAll('a[href="https://t.me/handy_home_bot"]').forEach(function (a) {
+        a.addEventListener('click', function (e) { e.preventDefault(); open(); });
+      });
     })();
   </script>
 </body>
